@@ -11,6 +11,7 @@ class MovieListing extends StatefulWidget {
 
 class _MovieListingState extends State<MovieListing> {
   int _ticketQuantity = 1;
+  String _bookingMessage = '';
 
   @override
   Widget build(BuildContext context) {
@@ -27,20 +28,11 @@ class _MovieListingState extends State<MovieListing> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text("Spider-Man"),
-            const Text("Runtime: 2 hours"),
-            const Text("Age rating: 15"),
-            const Text("A vampire travels to England and brings terror."),
-            const SizedBox(height: 16),
+            const Text('DRACULA (1931) (PG)'),
+            const Text('Southsea Cinema Room'),
+            const Text('A vampire travels to England and brings terror.'),
             DropdownMenu<int>(
               initialSelection: _ticketQuantity,
-              dropdownMenuEntries: const [
-                DropdownMenuEntry(value: 1, label: '1 ticket'),
-                DropdownMenuEntry(value: 2, label: '2 tickets'),
-                DropdownMenuEntry(value: 3, label: '3 tickets'),
-                DropdownMenuEntry(value: 4, label: '4 tickets'),
-                DropdownMenuEntry(value: 5, label: '5 tickets'),
-              ],
               onSelected: (int? value) {
                 if (value != null) {
                   setState(() {
@@ -49,16 +41,26 @@ class _MovieListingState extends State<MovieListing> {
                   });
                 }
               },
+              dropdownMenuEntries: const [
+                DropdownMenuEntry(value: 1, label: '1'),
+                DropdownMenuEntry(value: 2, label: '2'),
+                DropdownMenuEntry(value: 3, label: '3'),
+                DropdownMenuEntry(value: 4, label: '4'),
+                DropdownMenuEntry(value: 5, label: '5'),
+              ],
             ),
-            const SizedBox(height: 8),
             Text('Tickets selected: $_ticketQuantity'),
-            const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {
-                print('Add to order button pressed');
+                setState(() {
+                  _bookingMessage =
+                      'Added $_ticketQuantity tickets to the order';
+                  print(_bookingMessage);
+                });
               },
-              child: const Text("Add to order"),
+              child: const Text('Add to order'),
             ),
+            Text(_bookingMessage),
           ],
         ),
       ),
