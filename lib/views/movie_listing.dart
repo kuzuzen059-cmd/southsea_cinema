@@ -18,7 +18,7 @@ class MovieListing extends StatelessWidget {
         body: Container(
             child: Column(
           children: [
-            Text("Dracula"),
+            Text("Spiderman"),
             Text("Southsea cinema"),
             ElevatedButton(
                 onPressed: () {
