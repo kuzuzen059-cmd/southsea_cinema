@@ -28,9 +28,9 @@ class _MovieListingState extends State<MovieListing> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text('DRACULA (1931) (PG)'),
+            const Text('THE AMAZING SPIDER-MAN (2012) (PG-13)'),
             const Text('Southsea Cinema Room'),
-            const Text('A vampire travels to England and brings terror.'),
+            const Text('A teenager gains spider-like powers and fights crime.'),
             DropdownMenu<int>(
               initialSelection: _ticketQuantity,
               onSelected: (int? value) {
